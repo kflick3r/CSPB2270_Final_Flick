@@ -1,23 +1,70 @@
 #ifndef TRIE_H__
 #define TRIE_H__
 
-#include <iostream>
-#include <unordered_map>
+#include <string>
+#include <map>
 #include <vector>
 
 using namespace std;
 
+/*
+ * Trie Data Structure:
+ * A Trie (prefix tree) is a tree-based data structure.
+ * It is used for efficient storage and retrieval of strings.
+ *
+ * Each node represents a single character, and paths from the root to 
+ * terminal nodes represent complete words.
+ * In this case, each path represents a career title.
+ *
+ * My implementation supports the following functions:
+ * - Insertion of words
+ * - Exact word search
+ * - Prefix-based autocomplete
+ */
+
 class Trie {
 
 public:
+    //Constructor
+    // Initializes the Trie with an empty root node.
+    Trie();
 
-    
+    // Destructor
+    // Frees all dynamically allocated memory used by the Trie
+    ~Trie();
+
+    // Inserts a word into the Trie.
+    // Each character is added as a node if it does not already exist.
+    // The final node is marked as the end of a valid word.
+    void insert(string word);
+
+    // Returns true if the exact word exists in the Trie.
+    // Returns false otherwise. 
+    // Traverses character by character from the root node.
+    bool search(string word);
+
+    // Returns a list of all words in the Trie that begin with the given prefix.
+    // Navigates to the node representing the prefix, then performs a 
+    // depth-first search to collect all valid completions.
+    vector<string> autocomplete(string prefix);
     
 private:
-    
+    // Each node will represents a single character in the Trie.
+    // children maps each character to its corresponding next node. 
+    // isTheEnd marks the end of the complete career name.
     struct TrieNode {
-        unordered_map<char, TrieNode*>children;
+        map<char, TrieNode*> children;
         bool isTheEnd = false;
     };
 
+    // Root of the Trie
     TrieNode* root;
+
+    // Depth-First Search helper function for autocomplete.
+    // Starting at the given Trie node, explore all possibile paths, 
+    // building complete words using the prefix.
+    // Store them in the results reference vector.
+    void dfs(TrieNode* node, string prefix, vector<string>& results);
+};
+
+#endif
