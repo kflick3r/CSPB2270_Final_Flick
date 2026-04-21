@@ -1,6 +1,8 @@
 # CSPB2270_Final_Flick
 Final for CSPB 2270 (Spring 2026) - Trie Tree Algorithm
 
+This Trie is built on a real-world dataset of hundreds of occupations from O*NET, demonstrating scalability and efficient prefix-based search.
+
 ---
 
 ## Project Proposal: Trie Tree
