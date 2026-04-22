@@ -1,7 +1,7 @@
 /* Note: refer to the header file (trie.h) for documentation of each method. */
 
 #include "trie.h"
-#include <cctype>
+#include <cctype>  // for tolower(): lowercase insert and searches
 
 using namespace std;
 
