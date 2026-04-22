@@ -78,55 +78,6 @@ Choose an Option:
 2
 
 Search for an Exact Career Name: 
-teacher
-
-teacher was not found.
-
-----------------------
-         MENU         
-----------------------
-1. Insert a Career
-2. Search for an Exact Career
-3. Use an Autocomplete Search for a Career
-4. Exit
-
-Choose an Option: 
-2
-
-Search for an Exact Career Name: 
-Teacher
-
-Teacher was not found.
-
-----------------------
-         MENU         
-----------------------
-1. Insert a Career
-2. Search for an Exact Career
-3. Use an Autocomplete Search for a Career
-4. Exit
-
-Choose an Option: 
-4
-
-Thank You! Goodbye!
- 
-[70:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ g++ main.cpp code/trie.cpp -Icode -o trie_app && ./trie_app
-
-=== Career Trie Data Structure ===
-
-----------------------
-         MENU         
-----------------------
-1. Insert a Career
-2. Search for an Exact Career
-3. Use an Autocomplete Search for a Career
-4. Exit
-
-Choose an Option: 
-2
-
-Search for an Exact Career Name: 
 Teacher
 
 Teacher was not found.
