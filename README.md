@@ -202,6 +202,5 @@ Choose an Option:
 4
 
 Thank You! Goodbye!
- 
-[71:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ 
+
 ```

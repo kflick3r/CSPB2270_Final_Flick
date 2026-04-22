@@ -65,7 +65,7 @@ bool Trie::search(string word) {
 }
 
 
-// Depth-First search helper function
+// Depth-First Search helper function
 void Trie::dfs(TrieNode* node, vector<string>& results) {
     // If this node marks the end of a valid word,
     // add the original word to results vector
