@@ -64,54 +64,193 @@ When the program runs, it loads career titles from `careers.txt` into the Trie.
 #### Example interaction:
 
 ```text
-=== Career Autocomplete Demo ===
+=== Career Trie Data Structure ===
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+2
+
+Search for an Exact Career Name: 
+teacher
+
+teacher was not found.
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+2
+
+Search for an Exact Career Name: 
+Teacher
+
+Teacher was not found.
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+4
+
+Thank You! Goodbye!
+ 
+[70:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ g++ main.cpp code/trie.cpp -Icode -o trie_app && ./trie_app
+
+=== Career Trie Data Structure ===
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+2
+
+Search for an Exact Career Name: 
+Teacher
+
+Teacher was not found.
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+1
+
+Type a Career to be Inserted Into the Trie: 
+Teacher
+
+Successfully Inserted Teacher into the Trie Tree.
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+2
+
+Search for an Exact Career Name: 
+Teacher
+
+Teacher was found in the current Trie Tree.
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+3
 
 ~Search for a Career from the O*NET Dataset~ 
  
 *Limited to first 10 results*
 
-Hit Enter to Search or 'exit' to quit:
-do
+Hit Enter to Search or 'exit' to Return to the Menu:
+doc
 
-Suggestions:
+Found Suggestions:
  - Document Management Specialists
- - Door-to-Door Sales Workers, News and Street Vendors, and Related Workers
 
-Hit Enter to Search or 'exit' to quit:
-e
+Hit Enter to Search or 'exit' to Return to the Menu:
+en
 
-Suggestions:
- - Earth Drillers, Except Oil and Gas
- - Economics Teachers, Postsecondary
- - Economists
- - Editors
- - Education Administrators, All Other
- - Education Administrators, Kindergarten through Secondary
- - Education Administrators, Postsecondary
- - Education and Childcare Administrators, Preschool and Daycare
- - Education Teachers, Postsecondary
- - Educational Instruction and Library Workers, All Other
+Found Suggestions:
+ - Endoscopy Technicians
+ - Energy Auditors
+ - Energy Engineers, Except Wind and Solar
+ - Engine and Other Machine Assemblers
+ - Engineering Teachers, Postsecondary
+ - Engineering Technologists and Technicians, Except Drafters, All Other
+ - Engineers, All Other
+ - English Language and Literature Teachers, Postsecondary
+ - Entertainers and Performers, Sports and Related Workers, All Other
+ - Entertainment and Recreation Managers, Except Gambling
 
-Hit Enter to Search or 'exit' to quit:
-computer s
+Hit Enter to Search or 'exit' to Return to the Menu:
+Computer S
 
-Suggestions:
+Found Suggestions:
  - Computer Science Teachers, Postsecondary
  - Computer Systems Analysts
  - Computer Systems Engineers/Architects
 
-Hit Enter to Search or 'exit' to quit:
-tea
+Hit Enter to Search or 'exit' to Return to the Menu:
+ 
 
-Suggestions:
- - Teachers and Instructors, All Other
- - Teaching Assistants, All Other
- - Teaching Assistants, Postsecondary
- - Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education
- - Teaching Assistants, Special Education
- - Team Assemblers
+No matches found.
 
-Hit Enter to Search or 'exit' to quit:
+Hit Enter to Search or 'exit' to Return to the Menu:
+tu im
+
+No matches found.
+
+Hit Enter to Search or 'exit' to Return to the Menu:
+
+Empty Input. Please type a prefix.
+
+Hit Enter to Search or 'exit' to Return to the Menu:
+s
+
+Found Suggestions:
+ - Sailors and Marine Oilers
+ - Sales and Related Workers, All Other
+ - Sales Engineers
+ - Sales Managers
+ - Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel
+ - Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products
+ - Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products
+ - Sawing Machine Setters, Operators, and Tenders, Wood
+ - School Bus Monitors
+ - School Psychologists
+
+Hit Enter to Search or 'exit' to Return to the Menu:
 exit
-[63:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ 
+
+----------------------
+         MENU         
+----------------------
+1. Insert a Career
+2. Search for an Exact Career
+3. Use an Autocomplete Search for a Career
+4. Exit
+
+Choose an Option: 
+4
+
+Thank You! Goodbye!
+ 
+[71:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ 
 ```
