@@ -49,6 +49,7 @@ public:
     vector<string> autocomplete(string prefix);
     
 private:
+
     // Each node will represents a single character in the Trie.
     // children maps each character to its corresponding next node. 
     // isTheEnd marks the end of the complete career name.
@@ -57,17 +58,21 @@ private:
         bool isTheEnd = false;
     };
 
+
     // Root of the Trie
     TrieNode* root;
+
 
     // Depth-First Search helper function for autocomplete.
     // Starting at the given Trie node, explore all possibile paths, 
     // building complete words using the prefix.
     // Store them in the results reference vector.
     void dfs(TrieNode* node, string prefix, vector<string>& results);
-};
+
 
     // Delete Node helper function for destuctor
     void deleteNode(TrieNode* node);
+
+};
 
 #endif

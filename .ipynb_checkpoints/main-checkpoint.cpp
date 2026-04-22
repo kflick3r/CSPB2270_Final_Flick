@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <string>
 #include "trie.h"
 
 using namespace std;
@@ -14,7 +15,7 @@ int main() {
 
     // Check if the file was loaded correctly
     if (!file) {
-        cerr << "Error: Could not open careers.txt" << endl;
+        cout << "Error: Could not open careers.txt" << endl;
         return 1;
     }
 
@@ -35,6 +36,11 @@ int main() {
         getline(cin, prefix);
 
         if (prefix == "exit") break;
+        
+        if (prefix == "") {
+            cout << "Please enter a prefix." << endl;
+            continue;
+        }
 
         vector<string> results = trie.autocomplete(prefix);
 
