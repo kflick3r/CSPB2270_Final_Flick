@@ -54,8 +54,40 @@ bool Trie::search(string word) {
     return current->isTheEnd;
 }
 
-vector<string> Trie::autocomplete(string prefix) {
-    // 
 
-    return;
+// Depth-First search helper function
+void dfs(TrieNode* node, string prefix, vector<string>& results) {
+
+
+}
+
+
+    
+vector<string> Trie::autocomplete(string prefix) {
+     // Initialize pointer node to root 
+    TrieNode* current = root;
+
+    // Traverse to the end of the prefix only
+    for (int i =0; i < prefix.length(); i++) {
+        char c = prefix[i];
+
+        // If the current character path does not exist,
+        // the word is not in the Trie
+        if (current->children.find(c) == current->children.end()) {
+            // return the function to not trigger dfs
+            return {};
+        }
+        // Move to the next node corresponding to the character
+        current = current->children[c];
+    }
+
+    // If the loop ends and hasn't been returned, 
+    // the prefix exists.
+    // Initialize results vector
+    vector<string> results;
+    // call depth-first serach with validated prefix
+    // and collect all words that extend this prefix
+    dfs(current, prefix, results);
+
+    return results;
 }
