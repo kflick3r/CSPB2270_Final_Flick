@@ -13,11 +13,28 @@ Trie::~Trie() {}
 
 
 void Trie::insert(string word) {
-    // 
-    
+    // Initialize pointer node to root 
+    TrieNode* current = root;
+
+    // Loop through each character in string
+    for (int i = 0; i < word.length(); i++) {
+        char c = word[i];
+
+        // If the current character does not have a node yet,
+        // create a new TrieNode for it
+        if (current->children.find(c) == current->children.end()) {
+            current->children[c] = new TrieNode();
+        }
+        
+        // Move to the next node corresponding to the character
+        current = current->children[c];
+    }
+
+    // End of loop = end of word
+    current->isTheEnd = true;    
 }
 
-bool Trie::search(stringword) {
+bool Trie::search(string word) {
     //
 
     return false;

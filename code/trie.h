@@ -30,7 +30,7 @@ public:
     Trie();
 
     // Destructor
-    // Frees all dynamically allocated memory used by the Trie
+    // Frees all of the dynamically allocated memory used by the Trie
     ~Trie();
 
     // Inserts a word into the Trie.
