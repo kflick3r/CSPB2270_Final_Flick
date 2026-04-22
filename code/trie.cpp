@@ -35,9 +35,23 @@ void Trie::insert(string word) {
 }
 
 bool Trie::search(string word) {
-    //
+    // Initialize pointer node to root 
+    TrieNode* current = root;
 
-    return false;
+    // Traverse character by character
+    for (int i = 0; i < word.length(); i++) {
+        char c = word[i];
+
+        // If the current character path does not exist,
+        // the word is not in the Trie
+        if (current->children.find(c) == current->children.end()) {
+            return false;
+        }
+        // Move to the next node corresponding to the character
+        current = current->children[c];
+    }
+    // check if this node marks the end of a complete word
+    return current->isTheEnd;
 }
 
 vector<string> Trie::autocomplete(string prefix) {
