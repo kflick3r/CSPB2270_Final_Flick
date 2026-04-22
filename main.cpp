@@ -15,7 +15,7 @@ void printMenu() {
     cout << "2. Search for an Exact Career\n";
     cout << "3. Use an Autocomplete Search for a Career\n";
     cout << "4. Exit\n";
-    cout << "Choose an Option: ";
+    cout << "\nChoose an Option: \n";
 }
 
 int main() {
@@ -33,6 +33,7 @@ int main() {
 
     // insert the careers into the trie
     while (getline(file, career)) {
+        // Not inserting any possible empty lines
         if (!career.empty()) {
             trie.insert(career);
         }
@@ -41,38 +42,79 @@ int main() {
     file.close();
 
         
-    cout << "\n=== Career Autocomplete Demo ===" << endl;
-    
-    cout << "\n~Search for a Career from the O*NET Dataset~ \n \n*Limited to first 10 results*\n";
-    
-    string prefix;
+    cout << "\n=== Career Trie Data Structure ===" << endl;
+
+    int choice_num;
+    string user_input;
+
     while (true) {
-        cout << "\nHit Enter to Search or 'exit' to quit:\n";
-        getline(cin, prefix);
+        printMenu();
+        cin >> choice_num;
+        cin.ignore();
 
-        if (prefix == "exit") break;
-        
-        if (prefix == "") {
-            cout << "Empty Input. Please type a prefix." << endl;
-            continue;
+        // Choice 1: Inserting User Given Career
+        if (choice_num == 1) {
+            cout << "\nType a Career to be Inserted Into the Trie: \n";
+            getline(cin, user_input);
+            trie.insert(user_input);
+            cout << "\nSuccessfully Inserted " << user_input << " into the Trie Tree." << endl;
         }
-
-        vector<string> results = trie.autocomplete(prefix);
-
-        if (results.empty()) {
-            cout << "\nNo matches found." << endl;
-        } else {
-            cout << "\nSuggestions:" << endl;
             
-            // tracker for number of results
-            int count = 0;
-            
-            for (const string& word : results) {
-                cout << " - " << word << endl;
-                // limit to 10 results
-                count++;
-                if (count == 10) break; 
+        // Choice 2: Search for an exact career in Trie   
+        else if (choice_num == 2) {
+            cout << "\nSearch for an Exact Career Name: \n";
+            getline(cin, user_input);
+
+            if (trie.search(user_input)) {
+                cout << "\n" << user_input << " was found in the current Trie Tree." << endl;
             }
+            else {
+                cout << "\n" << user_input << " was not found." << endl;
+            }
+        }
+            
+        // Choice 3: Use the autocomplete function for a career search
+        else if (choice_num == 3) {
+            cout << "\n~Search for a Career from the O*NET Dataset~ \n \n*Limited to first 10 results*\n";
+
+            string prefix;
+
+            while (true) {
+                cout << "\nHit Enter to Search or 'exit' to Return to the Menu:\n";
+                getline(cin, prefix);
+
+                if (prefix == "exit") break;
+        
+                if (prefix == "") {
+                    cout << "Empty Input. Please type a prefix." << endl;
+                    continue;
+                }
+
+                vector<string> results = trie.autocomplete(prefix);
+
+                if (results.empty()) {
+                    cout << "\nNo matches found." << endl;
+                } 
+                else {
+                    cout << "\nFound Suggestions:" << endl;
+            
+                    // tracker for number of results
+                    int count = 0;
+            
+                    for (const string& word : results) {
+                        cout << " - " << word << endl;
+                        // limit to 10 results
+                        count++;
+                        if (count == 10) break; 
+                    }
+                }
+            }
+        }
+            
+        // Choice 4: Exit out of system
+        else if (choice_num == 4) {
+            cout << "\nThank You! Goodbye!\n \n";
+            break;
         }
     }
 

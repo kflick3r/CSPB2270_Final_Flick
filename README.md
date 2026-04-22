@@ -1,6 +1,5 @@
 # CSPB2270_Final_Flick
 ## Final Project: Trie Tree Algorithm
-### Career Autocomplete Search
 
 **Author:** Kassidy Flick  
 **Course:** CSPB 2270 - Data Structures  
@@ -12,7 +11,7 @@
 This project implements a Trie in C++ to simulate an autocomplete search system for career titles. It is built on a real-world dataset of hundreds of occupations from O*NET, demonstrating scalability and efficient prefix-based search.
 
 The system allows users to:
-- Insert Career Titles
+- Insert Career Titles Manually (in addition to the O*NET data)
 - Search for exact matches
 - Retrieve autocomplete suggestions based on user input prefix
 
@@ -35,10 +34,15 @@ A Trie is a tree-based data structure used for retrieval of strings. Each node r
 
 ## How It Works
 1. Career titles are read from `careers.txt`
-2. Each word is inserted into the Trie 
-3. The Trie struct stores original career strings for display while internally using lowercase for consistent traversal
-4. User enters a prefix
+2. Each career title is inserted into the Trie 
+3. The Trie struct stores
+   - Child Character Mapping
+   - A Boolean flag marking the end of the word
+   - The original career string to display
+4. Internally, input is converted to lowercase for consistent traversal
 5. DFS traverses subtree to collect all matches
+6. Users can insert their own career titles, search for exact matches, or search with autocomplete
+   - Autocomplete is limited to 10 results
 
 ---
 
