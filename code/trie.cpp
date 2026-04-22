@@ -1,6 +1,7 @@
 /* Note: refer to the header file (trie.h) for documentation of each method. */
 
 #include "trie.h"
+#include <cctype>
 
 using namespace std;
 
@@ -48,7 +49,10 @@ void Trie::insert(string word) {
     }
 
     // End of loop = end of word
-    current->isTheEnd = true;    
+    current->isTheEnd = true;  
+
+    // Store original word casing for results
+    current->originalWord = word;
 }
 
 
@@ -75,21 +79,18 @@ bool Trie::search(string word) {
 
 
 // Depth-First search helper function
-void Trie::dfs(TrieNode* node, string prefix, vector<string>& results) {
+void Trie::dfs(TrieNode* node, vector<string>& results) {
     // If this node marks the end of a valid word,
-    // add word to results vector
+    // add the original word to results vector
     if (node->isTheEnd) {
-        results.push_back(prefix);
+        // Store the original word (for proper casing)
+        results.push_back(node->originalWord);
     }
 
     // Explore all possible child paths recursively
     for (auto entry = node->children.begin(); entry != node->children.end(); entry++) {
-        char c = entry->first;
-
-        TrieNode* childNode = entry->second;
-
-        // call the recursive function with extended prefix
-        dfs(childNode, prefix + c, results);
+        // call the recursive function with the next node
+        dfs(entry->second, results);
     }
 }
 
@@ -119,8 +120,8 @@ vector<string> Trie::autocomplete(string prefix) {
     vector<string> results;
     
     // Call depth-first search with validated prefix
-    // and collect all words that extend this prefix
-    dfs(current, prefix, results);
+    // and collect any the original words found in search
+    dfs(current, results);
 
     return results;
 }

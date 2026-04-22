@@ -56,6 +56,8 @@ private:
     struct TrieNode {
         map<char, TrieNode*> children;
         bool isTheEnd = false;
+        // Store the original word for results
+        string originalWord;
     };
 
 
@@ -65,9 +67,10 @@ private:
 
     // Depth-First Search helper function for autocomplete.
     // Starting at the given Trie node, explore all possibile paths, 
-    // building complete words using the prefix.
-    // Store them in the results reference vector.
-    void dfs(TrieNode* node, string prefix, vector<string>& results);
+    // building complete words.
+    // At the end of the word, store the originalWord
+    // in the results reference vector.
+    void dfs(TrieNode* node, vector<string>& results);
 
 
     // Delete Node helper function for destuctor
