@@ -2,9 +2,9 @@
 ## Final Project: Trie Tree Algorithm
 ### Career Autocomplete Search
 
-**Author:** Kassidy Flick
-**Course:** CSPB 2270 - Data Structures
-**Semester:** Spring 2026
+**Author:** Kassidy Flick  
+**Course:** CSPB 2270 - Data Structures  
+**Semester:** Spring 2026  
 
 ---
 
@@ -14,7 +14,7 @@ This project implements a Trie in C++ to simulate an autocomplete search system 
 The system allows users to:
 - Insert Career Titles
 - Search for exact matches
-- Retieve autocomplete suggestions based on a prefix
+- Retrieve autocomplete suggestions based on user input prefix
 
 ---
 
@@ -35,26 +35,79 @@ A Trie is a tree-based data structure used for retrieval of strings. Each node r
 
 ## How It Works
 1. Career titles are read from `careers.txt`
-2. Each word is inserted into the Trie
-    - Normalized to lowercase internally
-3. The Trie stores the original formatting for display
+2. Each word is inserted into the Trie 
+3. The Trie struct stores original career strings for display while internally using lowercase for consistent traversal
 4. User enters a prefix
 5. DFS traverses subtree to collect all matches
 
 ---
 
 ## How to Run the Project
-1. Clone the Repository
-   `git clone https://github.com/kflick3r/CSPB2270_Final_Flick.git`
+1. Clone the Repository  
+   `git clone https://github.com/kflick3r/CSPB2270_Final_Flick.git`  
    `cd CSPB2270_Final_Flick`
-2. From the project root, compile the program
+2. From the project root, compile the program  
    `g++ main.cpp code/trie.cpp -Icode -o trie_app`
-3. Run the Executable
+3. Run the Executable  
    `./trie_app`
 
 ---
 
 ## Demo
 
+When the program runs, it loads career titles from `careers.txt` into the Trie.
 
+#### Example interaction:
 
+```text
+=== Career Autocomplete Demo ===
+
+~Search for a Career from the O*NET Dataset~ 
+ 
+*Limited to first 10 results*
+
+Hit Enter to Search or 'exit' to quit:
+do
+
+Suggestions:
+ - Document Management Specialists
+ - Door-to-Door Sales Workers, News and Street Vendors, and Related Workers
+
+Hit Enter to Search or 'exit' to quit:
+e
+
+Suggestions:
+ - Earth Drillers, Except Oil and Gas
+ - Economics Teachers, Postsecondary
+ - Economists
+ - Editors
+ - Education Administrators, All Other
+ - Education Administrators, Kindergarten through Secondary
+ - Education Administrators, Postsecondary
+ - Education and Childcare Administrators, Preschool and Daycare
+ - Education Teachers, Postsecondary
+ - Educational Instruction and Library Workers, All Other
+
+Hit Enter to Search or 'exit' to quit:
+computer s
+
+Suggestions:
+ - Computer Science Teachers, Postsecondary
+ - Computer Systems Analysts
+ - Computer Systems Engineers/Architects
+
+Hit Enter to Search or 'exit' to quit:
+tea
+
+Suggestions:
+ - Teachers and Instructors, All Other
+ - Teaching Assistants, All Other
+ - Teaching Assistants, Postsecondary
+ - Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education
+ - Teaching Assistants, Special Education
+ - Team Assemblers
+
+Hit Enter to Search or 'exit' to quit:
+exit
+[63:~/2270_Comp_Sci_2/CSPB2270_Final_Flick]$ 
+```

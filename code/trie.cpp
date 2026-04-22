@@ -11,29 +11,14 @@ Trie::Trie() {
     root = new TrieNode();
 }
 
-// Delete Node helper function
-void Trie::deleteNode(TrieNode* node) {
-    
-    // Recursively delete all child nodes first
-    for (auto entry = node->children.begin(); entry != node->children.end(); entry++) {
-        deleteNode(entry->second);
-    }
-
-    // Delete current node
-    delete node;
-}
-
-Trie::~Trie() {
-    // Call the helper function to delete the nodes recursively
-    deleteNode(root);
-}
+Trie::~Trie() {}
 
 
 void Trie::insert(string word) {
     // Initialize pointer node to root 
     TrieNode* current = root;
 
-    // Loop through each character in string
+    // Loop through each character in string parameter
     for (int i = 0; i < word.length(); i++) {
         // Normalize to Lowercase
         char c = tolower(word[i]);
@@ -68,12 +53,14 @@ bool Trie::search(string word) {
         // If the current character path does not exist,
         // the word is not in the Trie
         if (current->children.find(c) == current->children.end()) {
+            // End the search. Sting parameter was not found
             return false;
         }
         // Move to the next node corresponding to the character
         current = current->children[c];
     }
     // check if this node marks the end of a complete word
+    // Only returns complete words
     return current->isTheEnd;
 }
 
@@ -114,7 +101,7 @@ vector<string> Trie::autocomplete(string prefix) {
         current = current->children[c];
     }
     // If the loop ends and hasn't been returned, 
-    // the prefix exists.
+    // the prefix exists in the Trie.
     
     // Initialize results vector
     vector<string> results;
