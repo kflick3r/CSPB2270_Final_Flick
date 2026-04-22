@@ -34,7 +34,8 @@ void Trie::insert(string word) {
 
     // Loop through each character in string
     for (int i = 0; i < word.length(); i++) {
-        char c = word[i];
+        // Normalize to Lowercase
+        char c = tolower(word[i]);
 
         // If the current character does not have a node yet,
         // create a new TrieNode for it
@@ -57,7 +58,8 @@ bool Trie::search(string word) {
 
     // Traverse character by character
     for (int i = 0; i < word.length(); i++) {
-        char c = word[i];
+        // Normalize to Lowercase
+        char c = tolower(word[i]);
 
         // If the current character path does not exist,
         // the word is not in the Trie
@@ -98,7 +100,8 @@ vector<string> Trie::autocomplete(string prefix) {
 
     // Traverse to the end of the prefix only
     for (int i =0; i < prefix.length(); i++) {
-        char c = prefix[i];
+        // Normalize to Lowercase
+        char c = tolower(prefix[i]);
 
         // If the current character path does not exist,
         // the word is not in the Trie
