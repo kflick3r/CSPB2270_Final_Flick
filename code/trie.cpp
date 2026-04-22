@@ -4,10 +4,12 @@
 
 using namespace std;
 
+
 Trie::Trie() {
     // Initialize empty root node
     root = new TrieNode();
 }
+
 
 Trie::~Trie() {}
 
@@ -34,6 +36,7 @@ void Trie::insert(string word) {
     current->isTheEnd = true;    
 }
 
+
 bool Trie::search(string word) {
     // Initialize pointer node to root 
     TrieNode* current = root;
@@ -57,12 +60,24 @@ bool Trie::search(string word) {
 
 // Depth-First search helper function
 void dfs(TrieNode* node, string prefix, vector<string>& results) {
+    // If this node marks the end of a valid word,
+    // add word to results vector
+    if (node->isTheEnd) {
+        results.push_back(prefix);
+    }
 
+    // Explore all possible child paths recursively
+    for (auto entry = node->children.begin(); entry != node->children.end(); entry++) {
+        char c = entry->first;
 
+        TrieNode* childNode = entry->second;
+
+        // call the recursive function with extended prefix
+        dfs(childNode, prefix + c, results);
+    }
 }
 
 
-    
 vector<string> Trie::autocomplete(string prefix) {
      // Initialize pointer node to root 
     TrieNode* current = root;
@@ -80,12 +95,13 @@ vector<string> Trie::autocomplete(string prefix) {
         // Move to the next node corresponding to the character
         current = current->children[c];
     }
-
     // If the loop ends and hasn't been returned, 
     // the prefix exists.
+    
     // Initialize results vector
     vector<string> results;
-    // call depth-first serach with validated prefix
+    
+    // Call depth-first search with validated prefix
     // and collect all words that extend this prefix
     dfs(current, prefix, results);
 
