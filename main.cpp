@@ -6,6 +6,18 @@
 
 using namespace std;
 
+// Menu for users to choose which function they want to use
+void printMenu() {
+    cout << "\n----------------------\n";
+    cout << "         MENU         \n";
+    cout << "----------------------\n";
+    cout << "1. Insert a Career\n";
+    cout << "2. Search for an Exact Career\n";
+    cout << "3. Use an Autocomplete Search for a Career\n";
+    cout << "4. Exit\n";
+    cout << "Choose an Option: ";
+}
+
 int main() {
     Trie trie;
 
@@ -27,6 +39,7 @@ int main() {
     }
 
     file.close();
+
         
     cout << "\n=== Career Autocomplete Demo ===" << endl;
     
