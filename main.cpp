@@ -14,7 +14,7 @@ int main() {
 
     // Check if the file was loaded correctly
     if (!file) {
-        cerr << "Error: Could not open careers.txt" << endl;
+        cout << "Error: Could not open careers.txt" << endl;
         return 1;
     }
 

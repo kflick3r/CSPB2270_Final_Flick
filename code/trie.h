@@ -67,4 +67,7 @@ private:
     void dfs(TrieNode* node, string prefix, vector<string>& results);
 };
 
+    // Delete Node helper function for destuctor
+    void deleteNode(TrieNode* node);
+
 #endif

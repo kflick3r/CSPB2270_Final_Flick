@@ -10,8 +10,22 @@ Trie::Trie() {
     root = new TrieNode();
 }
 
+// Delete Node helper function
+void Trie::deleteNode(TrieNode* node) {
+    
+    // Recursively delete all child nodes first
+    for (auto entry = node->children.begin(); entry != node->children.end(); entry++) {
+        deleteNode(entry->second);
+    }
 
-Trie::~Trie() {}
+    // Delete current node
+    delete node;
+}
+
+Trie::~Trie() {
+    // Call the helper function to delete the nodes recursively
+    deleteNode(root);
+}
 
 
 void Trie::insert(string word) {
