@@ -28,26 +28,28 @@ int main() {
 
     file.close();
         
-    cout << "=== Career Autocomplete Demo ===" << endl;
-
+    cout << "\n=== Career Autocomplete Demo ===" << endl;
+    
+    cout << "\n~Search for a Career from the O*NET Dataset~ \n \n*Limited to first 10 results*\n";
+    
     string prefix;
     while (true) {
-        cout << "\nSearch for a Career (or 'exit' to quit): ";
+        cout << "\nHit Enter to Search or 'exit' to quit:\n";
         getline(cin, prefix);
 
         if (prefix == "exit") break;
         
         if (prefix == "") {
-            cout << "Please enter a prefix." << endl;
+            cout << "Empty Input. Please type a prefix." << endl;
             continue;
         }
 
         vector<string> results = trie.autocomplete(prefix);
 
         if (results.empty()) {
-            cout << "No matches found." << endl;
+            cout << "\nNo matches found." << endl;
         } else {
-            cout << "Suggestions:" << endl;
+            cout << "\nSuggestions:" << endl;
             
             // tracker for number of results
             int count = 0;
